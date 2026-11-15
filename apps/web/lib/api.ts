@@ -6,8 +6,7 @@ import {
   WorldResponse,
 } from "./types";
 
-const API_BASE = "";
-
+const API_BASE = (process.env.NEXT_PUBLIC_API_URL ?? "").replace(/\/$/, "");
 export async function fetchHealth(): Promise<{ data: HealthResponse | null; latencyMs: number; error: string | null }> {
   const startTime = Date.now();
   try {
